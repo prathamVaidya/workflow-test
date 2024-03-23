@@ -11,13 +11,10 @@ jobs:
           id: filter
           with:
             filters: |
-                frontend:
-                    - 'frontend/**'
                 backend:
                     - '!frontend/**'
 
         - name: Lint Frontend
-          if: ${{ steps.filter.outputs.frontend == 'true' }}
           run: echo "Doing frontend"; pwd
 
         - name: Lint Backend
