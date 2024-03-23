@@ -10,10 +10,7 @@ jobs:
         - uses: dorny/paths-filter@v3
           id: filter
           with:
-            filters: |
-                backend:
-                    - '!docs/**'
-                    - '!frontend/**'
+            filters: .github/file-filters.yml
 
         - name: Lint Frontend
           run: echo "Doing frontend"; pwd
