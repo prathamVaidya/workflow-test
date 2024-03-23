@@ -10,9 +10,8 @@ jobs:
         - uses: dorny/paths-filter@v2.2.1
           id: filter
           with:
-            filters: |
-                backend:
-                    - '!docs/**'
+            backend: |
+                !docs/**
 
         - name: Lint Frontend
           run: echo "Doing frontend"; pwd
