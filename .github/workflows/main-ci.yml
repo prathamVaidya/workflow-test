@@ -7,11 +7,12 @@ jobs:
         - name: checkout
           uses: actions/checkout@v2
 
-        - uses: dorny/paths-filter@v2.2.1
+        - uses: dorny/paths-filter@v3
           id: filter
           with:
-            backend: |
-                !docs/**
+            filters: |
+                backend:
+                    - '!docs/**'
 
         - name: Lint Frontend
           run: echo "Doing frontend"; pwd
