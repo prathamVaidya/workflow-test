@@ -11,10 +11,15 @@ jobs:
           id: filter
           with:
             filters: |
+                frontend:
+                    - 'frontend/**'
                 backend:
                     - '!frontend/**'
+                    - '!docs/**'
+                    - '!.github/workflows'
 
         - name: Lint Frontend
+          if: ${{ steps.filter.outputs.frontend == 'true' || steps.filter.outputs.backend == 'true'}}
           run: echo "Doing frontend"; pwd
 
         - name: Lint Backend
