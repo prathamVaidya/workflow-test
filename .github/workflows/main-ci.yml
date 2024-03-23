@@ -11,8 +11,9 @@ jobs:
           id: filter
           with:
             filters: |
-                backend:
-                    - '!frontend/**'
+                backend: |
+                    !frontend/**
+                    !docs/**
 
         - name: Lint Frontend
           run: echo "Doing frontend"; pwd
