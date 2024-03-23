@@ -2,10 +2,10 @@ name: frontend-ci
 on:
   push:
     paths:
-      - '**.js'
+      - 'frontend/**'
   pull_request:
     paths:
-      - '**.js'
+      - 'frontend/**'
   workflow_dispatch:
 jobs:
   lint:
