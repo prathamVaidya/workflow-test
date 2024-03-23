@@ -1,12 +1,22 @@
 name: main-ci
-on:
-  push:
-    paths:
-        - 'frontend/**'
-        - 'backend/**'
+on: ['push', 'pull_request']
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
-        run: ls
+        - uses: dorny/paths-filter@v2.2.1
+          id: filter
+          with:
+            filters: |
+                frontend:
+                    - 'frontend/**'
+                backend:
+                    - 'backend/**'
+
+        - name: Lint Frontend
+          if: ${{ steps.filter.outputs.frontend == 'true' }}
+          run: echo "Doing frontend"; pwd
+
+        - name: Lint Backend
+          if: ${{ steps.filter.outputs.backend == 'true' }}
+          run: echo "Doing Backend";  pwd
