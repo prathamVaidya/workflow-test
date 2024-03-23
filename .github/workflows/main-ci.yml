@@ -5,18 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
         - uses: dorny/paths-filter@v3
           id: filter
           with:
-            filters: |
-                backend:
-                    - '!docs/**'
-                    - '!frontend/**'
-
-        - name: Lint Frontend
-          run: echo "Doing frontend"; pwd
+            filters: .github/file-filters.yml
+            list-files: shell
 
         - name: Lint Backend
           if: ${{ steps.filter.outputs.backend == 'true' }}
