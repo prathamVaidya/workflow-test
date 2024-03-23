@@ -13,7 +13,6 @@ jobs:
             filters: |
                 backend:
                     - '!frontend/**'
-                    - '!docs/**'
 
         - name: Lint Frontend
           run: echo "Doing frontend"; pwd
