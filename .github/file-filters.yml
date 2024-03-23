@@ -1,2 +1,2 @@
 backend:
-      - '!(docs)/**&&!(frontend)/**'
+      - '!(docs|frontend)/**'
