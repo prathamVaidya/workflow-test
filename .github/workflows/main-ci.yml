@@ -14,9 +14,10 @@ jobs:
                 frontend:
                     - 'frontend/**'
                 backend:
+                    - '**'
                     - '!frontend/**'
                     - '!docs/**'
-                    - '!.github/workflows'
+                    - '!.github/**'
 
         - name: Lint Frontend
           if: ${{ steps.filter.outputs.frontend == 'true' || steps.filter.outputs.backend == 'true'}}
